@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Trabalhista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="LOGOS.png" alt="Logo da Calculadora Trabalhista" />
+        </div>
+        <h1>Calculadora Trabalhista</h1>
+        
+        <div class="form-group">
+            <label for="salary">Salário:</label>
+            <input type="text" id="salary" placeholder="R$ 0,00" oninput="formatInput(this)">
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Idade:</label>
+            <input type="number" id="age" placeholder="Idade" min="18" max="75">
+        </div>
+        
+        <div class="form-group">
+            <label for="injuryType">Tipo de Lesão:</label>
+            <select id="injuryType">
+                
+                <optgroup label="Lesões Visuais">
+                    <option value="visao_parcial_1_olho_afeta">Perda de Visão Parcial (1 olho) - Afeta Atividade (20%)</option>
+                    <option value="visao_parcial_1_olho_nao_afeta">Perda de Visão Parcial (1 olho) - Não Afeta Atividade (10%)</option>
+                    <option value="visao_parcial_2_olhos_afeta">Perda de Visão Parcial (2 olhos) - Afeta Atividade (40%)</option>
+                    <option value="visao_parcial_2_olhos_nao_afeta">Perda de Visão Parcial (2 olhos) - Não Afeta Atividade (15%)</option>
+                    <option value="visao_completa_1_olho_afeta">Perda de Visão Completa (1 olho) - Afeta Atividade (70%)</option>
+                    <option value="visao_completa_1_olho_nao_afeta">Perda de Visão Completa (1 olho) - Não Afeta Atividade (30%)</option>
+                    <option value="visao_completa_2_olhos">Perda de Visão Completa (2 olhos) - 100%</option>
+                </optgroup>
+
+                
+                <optgroup label="Lesões Auditivas">
+                    <option value="audicao_unilateral_afeta">Perda de Audição Unilateral - Afeta Atividade (25%)</option>
+                    <option value="audicao_bilateral_nao_afeta">Perda de Audição Bilateral - Não Afeta Atividade (50%)</option>
+                    <option value="audicao_bilateral_afeta">Perda de Audição Bilateral - Afeta Atividade (100%)</option>
+                </optgroup>
+
+
+                
+                <optgroup label="Lesões de Mãos e Dedos">
+                    <option value="polegar_parcial">Perda de Polegar Parcial (30%)</option>
+                    <option value="polegar_total">Perda de Polegar Total (50%)</option>
+                    <option value="indicador_total">Perda de Indicador Total (20%)</option>
+                    <option value="indicador_parcial">Perda de Indicador Parcial (10%)</option>
+                    <option value="dedo_medio_completo">Perda de Dedo Médio Completo (15%)</option>
+                    <option value="dedo_medio_parcial">Perda de Dedo Médio Parcial (8%)</option>
+                    <option value="anelar_completo">Perda de Anelar Completo (8%)</option>
+                    <option value="anelar_parcial">Perda de Anelar Parcial (4%)</option>
+                    <option value="dedo_minimo_completo">Perda de Dedo Mínimo Completo (8%)</option>
+                    <option value="dedo_minimo_parcial">Perda de Dedo Mínimo Parcial (4%)</option>
+                    <option value="perda_2_dedos">Perda de 2 Dedos (40%)</option>
+                    <option value="perda_3_dedos">Perda de 3 Dedos (80%)</option>
+                    <option value="perda_4_dedos">Perda de 4 Dedos (100%)</option>
+                    <option value="movimento_pinça_prejudicado">Movimento Pinça Prejudicado (60%)</option>
+                    <option value="perda_de_mao">Perda de Mão (100%)</option>
+                </optgroup>
+
+                
+                <optgroup label="Lesões de Força e Mobilidade">
+                    <option value="forca_leve_afeta">Perda de Força Leve - Afeta Atividade (10%)</option>
+                    <option value="forca_leve_nao_afeta">Perda de Força Leve - Não Afeta Atividade (5%)</option>
+                    <option value="forca_moderada_afeta">Perda de Força Moderada - Afeta Atividade (40%)</option>
+                    <option value="forca_moderada_nao_afeta">Perda de Força Moderada - Não Afeta Atividade (5%)</option>
+                    <option value="forca_grave_afeta">Perda de Força Grave - Afeta Atividade (70%)</option>
+                    <option value="forca_grave_nao_afeta">Perda de Força Grave - Não Afeta Atividade (20%)</option>
+                    <option value="mobilidade_leve_afeta">Perda de Mobilidade Leve - Afeta Atividade (20%)</option>
+                    <option value="mobilidade_leve_nao_afeta">Perda de Mobilidade Leve - Não Afeta Atividade (5%)</option>
+                    <option value="mobilidade_moderada_afeta">Perda de Mobilidade Moderada - Afeta Atividade (50%)</option>
+                    <option value="mobilidade_moderada_nao_afeta">Perda de Mobilidade Moderada - Não Afeta Atividade (15%)</option>
+                    <option value="mobilidade_grave_afeta">Perda de Mobilidade Grave - Afeta Atividade (100%)</option>
+                    <option value="mobilidade_grave_nao_afeta">Perda de Mobilidade Grave - Não Afeta Atividade (20%)</option>
+                    <option value="mobilidade_umeral_afeta">Perda de Mobilidade de Úmero - Afeta Atividade (80%)</option>
+                    <option value="mobilidade_umeral_nao_afeta">Perda de Mobilidade de Úmero - Não Afeta Atividade (0%)</option>
+                </optgroup>
+
+               
+                <optgroup label="Lesões de Membros e Articulações">
+                    <option value="encurtamento_membro">Encurtamento de Membro (4cm ou mais) - 30%</option>
+                    <option value="encurtamento_membro_menor">Encurtamento de Membro (Menor que 4cm) - 5%</option>
+                    <option value="articulacao_leve">Perda de Articulação Leve (15%)</option>
+                    <option value="articulacao_media">Perda de Articulação Média (30%)</option>
+                    <option value="articulacao_grave">Perda de Articulação Grave (70%)</option>
+                </optgroup>
+
+               
+                <optgroup label="Lesões de Pés">
+                    <option value="dedo_pe_afeta">Perda de 1 Dedo do Pé - Afeta Atividade (10%)</option>
+                    <option value="perda_2_dedos_pe_afeta">Perda de 2 Dedos do Pé - Afeta Atividade (25%)</option>
+                    <option value="perda_3_dedos_pe_afeta">Perda de 3 Dedos do Pé - Afeta Atividade (40%)</option>
+                    <option value="todos_dedos_pe_afeta">Perda de Todos os Dedos do Pé - Afeta Atividade (50%)</option>
+                    <option value="perda_pe">Perda do Pé - 100%</option>
+                    <option value="perda_perna">Perda da Perna - 100%</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button onclick="calculate()">Calcular</button>
+        </div>
+        
+        <div id="result"></div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
